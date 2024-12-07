@@ -1,0 +1,41 @@
+## Deploying to Vercel
+
+### Prerequisites
+- Vercel Account
+- GitHub Repository
+
+### Deployment Steps
+1. Install Vercel CLI
+```bash
+npm install -g vercel
+```
+
+2. Login to Vercel
+```bash
+vercel login
+```
+
+3. Deploy Project
+```bash
+vercel
+```
+
+### vercel.json Configuration
+```json
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
+```

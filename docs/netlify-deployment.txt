@@ -1,0 +1,37 @@
+## Deploying to Netlify
+
+### Method 1: Direct GitHub Connection
+1. Create Netlify Account
+2. Click "New site from Git"
+3. Choose GitHub
+4. Select Your Repository
+5. Configure Build Settings:
+   - Build Command: `npm run build`
+   - Publish Directory: `build`
+
+### Method 2: Netlify CLI
+```bash
+# Install Netlify CLI
+npm install netlify-cli -g
+
+# Login to Netlify
+netlify login
+
+# Initialize site
+netlify init
+
+# Deploy
+netlify deploy
+```
+
+### netlify.toml Configuration
+```toml
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
